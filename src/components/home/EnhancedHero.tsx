@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Sparkles, Github, Star, Download } from 'lucide-react';
+import {  Sparkles, Github, Star, Download } from 'lucide-react';
 import { Button } from '../ui';
 import { useRef } from 'react';
 

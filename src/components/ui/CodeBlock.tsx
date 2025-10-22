@@ -12,7 +12,6 @@ interface CodeBlockProps {
 
 export const CodeBlock = ({ 
   code, 
-  language = 'bash', 
   title, 
   showLineNumbers = false,
   className = '' 

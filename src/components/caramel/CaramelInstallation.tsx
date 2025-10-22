@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Candy, Download, Terminal, Package } from 'lucide-react';
+import {  Download, Terminal, Package } from 'lucide-react';
 import { CodeBlock, GlassCard } from '../ui';
 
 export const CaramelInstallation = () => {

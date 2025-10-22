@@ -16,7 +16,7 @@ interface TerminalProps {
 
 export const Terminal = ({ lines, autoPlay = true, loop = false, className = '' }: TerminalProps) => {
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(autoPlay);
+  const [isPlaying] = useState(autoPlay);
 
   useEffect(() => {
     if (!isPlaying || currentLineIndex >= lines.length) {
