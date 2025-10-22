@@ -1,0 +1,383 @@
+/* ========================================
+   🎨 CEREKIN DESIGN SYSTEM
+   Futuristic Minimalism meets Developer Elegance
+   ======================================== */
+
+/* Font Imports - Inter, Space Grotesk, JetBrains Mono */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* ========================================
+   CSS VARIABLES & THEME TOKENS
+   ======================================== */
+@theme {
+  /* Cerekin Color Palette - Dark Mode (Default) */
+  --color-cerekin-bg: #0C0C0E;
+  --color-cerekin-surface: #121214;
+  --color-cerekin-border: #2E2E30;
+  --color-cerekin-text: #FFFFFF;
+  --color-cerekin-text-secondary: #A1A1AA;
+  
+  /* Light Mode Palette */
+  --color-cerekin-light-bg: #FFFFFF;
+  --color-cerekin-light-surface: #F9F9FB;
+  --color-cerekin-light-text: #0C0C0E;
+  --color-cerekin-light-text-secondary: #555555;
+  --color-cerekin-light-border: #E5E7EB;
+  
+  /* Product Accent Colors */
+  --color-blonde-primary: #7B61FF;
+  --color-blonde-glow: rgba(123, 97, 255, 0.4);
+  --color-caramel-primary: #FFB869;
+  --color-caramel-glow: rgba(255, 184, 105, 0.4);
+  --color-cremeos-primary: #00C2FF;
+  --color-cremeos-glow: rgba(0, 194, 255, 0.4);
+  
+  /* Gradient Stops */
+  --color-accent-purple: #7B61FF;
+  --color-accent-orange: #FFB869;
+  --color-accent-cyan: #00C2FF;
+
+  /* Font Families */
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Keyframe Animations */
+  @keyframes gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes glow {
+    0% { box-shadow: 0 0 20px rgba(123, 97, 255, 0.3); }
+    100% { box-shadow: 0 0 40px rgba(123, 97, 255, 0.6); }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { 
+      box-shadow: 0 0 30px rgba(123, 97, 255, 0.3), 0 0 60px rgba(123, 97, 255, 0.1); 
+    }
+    50% { 
+      box-shadow: 0 0 50px rgba(123, 97, 255, 0.5), 0 0 100px rgba(123, 97, 255, 0.2); 
+    }
+  }
+
+  @keyframes tilt {
+    0%, 100% { transform: rotate(-1deg); }
+    50% { transform: rotate(1deg); }
+  }
+
+  @keyframes slideUp {
+    0% { transform: translateY(30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes slideInLeft {
+    0% { transform: translateX(-50px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slideInRight {
+    0% { transform: translateX(50px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes bounceSubtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+}
+
+/* ========================================
+   BASE LAYER - Reset & Defaults
+   ======================================== */
+@layer base {
+  :root {
+    --bg-primary: #0C0C0E;
+    --bg-secondary: #121214;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A1A1AA;
+    --border-color: #2E2E30;
+    --blonde-primary: #7B61FF;
+    --caramel-primary: #FFB869;
+    --cremeos-primary: #00C2FF;
+  }
+  
+  .light {
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F9F9FB;
+    --text-primary: #0C0C0E;
+    --text-secondary: #555555;
+    --border-color: #E5E7EB;
+  }
+
+  * {
+    border-color: var(--border-color);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-family-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-display);
+    font-weight: 700;
+  }
+
+  /* Selection Styling */
+  ::selection {
+    background-color: rgba(123, 97, 255, 0.3);
+    color: #FFFFFF;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--bg-secondary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--blonde-primary);
+    border-radius: 9999px;
+    transition: background-color 0.2s;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--cremeos-primary);
+  }
+}
+
+/* ========================================
+   COMPONENTS LAYER - Reusable UI Elements
+   ======================================== */
+@layer components {
+  /* Glassmorphism Effects */
+  .glass {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-hover {
+    transition: all 0.3s ease;
+  }
+
+  .glass-hover:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Gradient Text Effects */
+  .gradient-text {
+    background-image: linear-gradient(135deg, #7B61FF, #FFB869, #00C2FF);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient 8s ease infinite;
+  }
+
+  .gradient-text-static {
+    background-image: linear-gradient(135deg, #7B61FF, #FFB869, #00C2FF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  /* Neon Button */
+  .neon-button {
+    position: relative;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    background-image: linear-gradient(to right, #7B61FF, #00C2FF);
+    box-shadow: 0 10px 25px rgba(123, 97, 255, 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .neon-button:hover {
+    box-shadow: 0 15px 35px rgba(123, 97, 255, 0.7);
+    transform: scale(1.05);
+  }
+
+  /* Animated Gradient Background */
+  .animated-gradient {
+    background: linear-gradient(-45deg, #7B61FF, #FFB869, #00C2FF, #7B61FF);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  /* Hover Card with 3D Effect */
+  .hover-card {
+    transition: all 0.3s ease;
+  }
+
+  .hover-card:hover {
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 20px 40px rgba(123, 97, 255, 0.2);
+  }
+
+  /* Glow Card */
+  .glow-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+  }
+
+  .glow-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(135deg, rgba(123, 97, 255, 0.2), rgba(255, 184, 105, 0.2), rgba(0, 194, 255, 0.2));
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+
+  .glow-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Code Block Styling */
+  .code-block {
+    font-family: var(--font-family-mono);
+    font-size: 0.875rem;
+    background-color: rgba(18, 18, 20, 0.5);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    overflow-x: auto;
+  }
+
+  /* Floating Animation */
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Pulse Glow */
+  .pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  /* Section Container */
+  .section-container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5rem 1.5rem;
+  }
+
+  /* Hero Gradient Overlay */
+  .hero-gradient {
+    background: radial-gradient(
+      circle at 50% 0%,
+      rgba(123, 97, 255, 0.2) 0%,
+      transparent 60%
+    );
+  }
+
+  /* Terminal Window */
+  .terminal-window {
+    background-color: #0C0C0E;
+    border: 1px solid #2E2E30;
+    border-radius: 0.75rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+
+  .terminal-header {
+    background-color: #121214;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #2E2E30;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .terminal-body {
+    padding: 1.5rem;
+    font-family: var(--font-family-mono);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+}
+
+/* ========================================
+   UTILITIES LAYER - Helper Classes
+   ======================================== */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px currentColor;
+  }
+
+  .backdrop-blur-glass {
+    backdrop-filter: blur(16px) saturate(180%);
+  }
+}
+
+/* ========================================
+   SCROLL ANIMATIONS
+   ======================================== */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger Animation Delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
