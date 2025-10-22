@@ -2,17 +2,17 @@ import { motion } from 'framer-motion';
 import { Terminal } from '../ui';
 
 export const CaramelDemo = () => {
-  const demoLines: TerminalLine[] = [
-  { type: 'output', text: '🍬 Caramel AI Assistant v1.0.0', delay: 500 },
-  { type: 'output', text: 'Running locally on your machine', delay: 600 },
-  { type: 'command', text: 'caramel chat "Explain quantum computing"', delay: 1000 },
-  { type: 'output', text: '💭 Thinking...', delay: 800 },
-  { type: 'success', text: 'Quantum computing uses quantum mechanics principles...', delay: 1000 },
-  { type: 'command', text: 'caramel analyze document.pdf', delay: 1000 },
-  { type: 'success', text: '✓ Analyzed 15 pages in 2.3 seconds', delay: 800 },
-  { type: 'command', text: 'caramel code "Create a React component"', delay: 1000 },
-  { type: 'success', text: '✓ Generated React component with TypeScript', delay: 900 },
-];
+  const demoLines = [
+    { type: 'output', text: '🍬 Caramel AI Assistant v1.0.0', delay: 500 },
+    { type: 'output', text: 'Running locally on your machine', delay: 600 },
+    { type: 'command', text: 'caramel chat "Explain quantum computing"', delay: 1000 },
+    { type: 'output', text: '💭 Thinking...', delay: 800 },
+    { type: 'success', text: 'Quantum computing uses quantum mechanics principles...', delay: 1000 },
+    { type: 'command', text: 'caramel analyze document.pdf', delay: 1000 },
+    { type: 'success', text: '✓ Analyzed 15 pages in 2.3 seconds', delay: 800 },
+    { type: 'command', text: 'caramel code "Create a React component"', delay: 1000 },
+    { type: 'success', text: '✓ Generated React component with TypeScript', delay: 900 },
+  ];
 
   return (
     <section className="section-container">
