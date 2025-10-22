@@ -36,8 +36,8 @@
 
 
 import { motion } from 'framer-motion';
-import { Candy, Download, Github } from 'lucide-react';
-import { Button, GlassCard } from '../components/ui';
+import { Download, Github } from 'lucide-react';
+import { Button,  } from '../components/ui';
 import {
   CaramelHero,
   CaramelFeatures,
