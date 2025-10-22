@@ -36,7 +36,8 @@ export const Terminal = ({ lines, autoPlay = true, loop = false, className = '' 
     return () => clearTimeout(timer);
   }, [currentLineIndex, isPlaying, lines, loop]);
 
-  const getLineColor = (type: string) => {
+  // const getLineColor = (type: string) => {
+  const getLineColor = (type: TerminalLine['type']) => {
     switch (type) {
       case 'command':
         return 'text-blonde-primary';
@@ -49,7 +50,8 @@ export const Terminal = ({ lines, autoPlay = true, loop = false, className = '' 
     }
   };
 
-  const getPrompt = (type: string) => {
+  // const getPrompt = (type: string) => {
+  const getPrompt = (type: TerminalLine['type']) => {
     switch (type) {
       case 'command':
         return '$ ';
